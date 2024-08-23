@@ -1,0 +1,27 @@
+{
+  "name": "hono-mongoose-boilerplate",
+  "version": "1.0.0",
+  "description": "A boilerplate for a Hono server with Mongoose",
+  "main": "src/server.ts",
+  "author": {
+    "name": "Adam Umar",
+    "email": "umarmash@gmail.com"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc"
+  },
+  "type": "module",
+  "dependencies": {
+    "@hono/node-server": "^1.12.1",
+    "dotenv": "^16.4.5",
+    "hono": "^4.5.8",
+    "mongoose": "^8.5.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.11.17",
+    "tsx": "^4.7.1",
+    "typescript": "^5.5.4"
+  }
+}

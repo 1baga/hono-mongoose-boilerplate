@@ -7,9 +7,9 @@ import { etag } from "hono/etag"
 import { secureHeaders } from 'hono/secure-headers'
 import { timing } from 'hono/timing'
 import { connectToDatabase } from './database'
-import userModel from './database/models/user.model'
+import userRouter from './routes/user.router'
 
-const app = new Hono()
+const app = new Hono().basePath('/api')
 
 app.use(bodyLimit({ maxSize: 50_000 * 1024 })) // 50MB
 app.use(cors())
@@ -27,9 +27,12 @@ app.get('/', (c) => {
   })
 })
 
-app.get('/health', (c) => {
+app.all('/health', (c) => {
   return c.json({
     message: 'alive'
   })
 })
+
+app.route('/', userRouter)
+
 export default app

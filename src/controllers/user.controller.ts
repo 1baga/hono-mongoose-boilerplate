@@ -1,10 +1,8 @@
 import { Context } from "hono";
+import { sendResponse } from "../utils/responses";
 
 export const getUsers = (c: Context) => {
-  return new Response("Hello, Users!", {
-    status: 201,
-    headers: {
-      "Content-Type": "application/json",
-    },
+  return sendResponse(c, 201, {
+    message: "Users fetched successfully",
   });
 };
